@@ -55,11 +55,14 @@ public class Bonfire : GimmickBase
 
     protected override void OnCollisionEnterPlayer()
     {
-        _startScale = _fire.localScale;
-        float point = Player.player.branchPoint / _pointRef;
-        _endScale = _fire.localScale + new Vector3(point, point, point);
-        _nowTime = 0.0f;
-        Player.player.branchPoint = 0;
+        if(Player.player.branchPoint != 0)
+        {
+            _startScale = _fire.localScale;
+            float point = Player.player.branchPoint / _pointRef;
+            _endScale = _fire.localScale + new Vector3(point, point, point);
+            _nowTime = 0.0f;
+            Player.player.branchPoint = 0;
+        }
     }
 
 }

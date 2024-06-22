@@ -47,13 +47,13 @@ public class player_move : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(delta, Vector3.up);
     }
 
-    private void OnCollisionEnter(Collision coll)
-    {
-        istouch = true;
-    }
+    //private void OnCollisionEnter(Collision coll)
+    //{
+    //    istouch = true;
+    //}
 
-    private void OnCollisionExit(Collision coll)
-    {
-        istouch = false;
-    }
+    //private void OnCollisionExit(Collision coll)
+    //{
+    //    istouch = false;
+    //}
 }
