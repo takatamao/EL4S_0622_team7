@@ -16,7 +16,7 @@ public class player_anim : MonoBehaviour
     void Update()
     {
         //•€‚Ì“–‚½‚è”»’è‚ÍU‚Á‚Ä‚¢‚é‚Æ‚«‚Ì‚İ
-        axe.isTrigger = !anim.GetCurrentAnimatorStateInfo(0).IsName("swing");
+        axe.enabled = anim.GetCurrentAnimatorStateInfo(0).IsName("swing");
 
         //•€‚ğU‚é
         if (Input.GetMouseButton(0))
