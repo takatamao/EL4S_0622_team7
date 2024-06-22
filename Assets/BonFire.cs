@@ -1,6 +1,7 @@
 using OpenCover.Framework.Model;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bonfire : GimmickBase
 {
@@ -9,6 +10,7 @@ public class Bonfire : GimmickBase
     [SerializeField] private Transform _fire;
     [SerializeField] private float _burstTime;
     [SerializeField] private float _maxSize = 5.0f;
+    [SerializeField] private float _pointRef = 1.0f;    // ‚­‚×‚½Ž}‚Ì”‚ð‚½‚«‰Î‚Ì‘å‚«‚³‚É”½‰f‚·‚éŠ„‡
     private float _nowTime;
     private Vector3 _startScale = Vector3.zero;
     private Vector3 _endScale = Vector3.zero;
@@ -39,12 +41,17 @@ public class Bonfire : GimmickBase
         {
             if(_fire.localScale.x >= 0)_fire.localScale -= new Vector3(_decreaseValue, _decreaseValue, _decreaseValue);
         }
+        if (_fire.localScale.x <= 0.0f)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     protected override void OnCollisionEnterPlayer()
     {
         _startScale = _fire.localScale;
-        _endScale = _fire.localScale + new Vector3(Player.player.branchPoint, Player.player.branchPoint, Player.player.branchPoint);
+        float point = Player.player.branchPoint / _pointRef;
+        _endScale = _fire.localScale + new Vector3(point, point, point);
         _nowTime = 0.0f;
         Player.player.branchPoint = 0;
     }
