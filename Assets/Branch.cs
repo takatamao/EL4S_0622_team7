@@ -18,7 +18,10 @@ public class Branch : GimmickBase
 
     protected override void OnCollisionEnterPlayer()
     {
-        Player.player.branchPoint++;
-        Destroy(this.gameObject);
+        if(Player.player.branchPoint < Player.player.maxBranchPoint)
+        {
+            Player.player.branchPoint++;
+            Destroy(this.gameObject);
+        }
     }
 }
