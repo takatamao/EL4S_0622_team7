@@ -2126,6 +2126,9 @@ GameObject:
   - component: {fileID: 7400644473075019115}
   - component: {fileID: -5259442010704305060}
   - component: {fileID: 7261058302050979080}
+  - component: {fileID: 4077093675780074338}
+  - component: {fileID: 6966163913922689346}
+  - component: {fileID: 9074953591631172882}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Player
@@ -2196,8 +2199,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d435424443bbf1246824a3da4a5e3592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_walk: 1
-  speed_run: 2
+  speed_walk: 4
+  speed_run: 7
+--- !u!65 &4077093675780074338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598930238958934886}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.96, z: 1}
+  m_Center: {x: 0, y: 0.99, z: 0}
+--- !u!54 &6966163913922689346
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598930238958934886}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!114 &9074953591631172882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598930238958934886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99b9cb07267ad14ca3c5ada4ecb61f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveValue: 10
+  branchPoint: 0
+  maxBranchPoint: 5
 --- !u!1 &3675298699290909066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,7 +3588,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.4669506, y: 1, z: 1.9645566}
   m_Center: {x: -0.04, y: 0.11, z: 0.48227805}

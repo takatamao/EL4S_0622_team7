@@ -8,6 +8,7 @@ public class Bonfire : GimmickBase
 
     [SerializeField] private float _decreaseValue;
     [SerializeField] private Transform _fire;
+    [SerializeField] private Light _light;
     [SerializeField] private float _burstTime;
     [SerializeField] private float _maxSize = 5.0f;
     [SerializeField] private float _pointRef = 1.0f;    // ‚­‚×‚½}‚Ì”‚ğ‚½‚«‰Î‚Ì‘å‚«‚³‚É”½‰f‚·‚éŠ„‡
@@ -24,9 +25,9 @@ public class Bonfire : GimmickBase
     void Update()
     {
 
-        if (_nowTime<=_burstTime)
+        if (_nowTime <= _burstTime)
         {
-            Vector3 size = Vector3.Lerp(_startScale, _endScale,_nowTime/_burstTime);
+            Vector3 size = Vector3.Lerp(_startScale, _endScale, _nowTime / _burstTime);
             if (size.x >= _maxSize)
             {
                 size = new Vector3(_maxSize, _maxSize, _maxSize);
@@ -34,16 +35,21 @@ public class Bonfire : GimmickBase
             else
             {
                 _fire.localScale = size;
+
             }
+            _light.intensity = size.x * 2;
+            _light.range = _light.intensity * 10;
             _nowTime += Time.deltaTime;
         }
         else
         {
-            if(_fire.localScale.x >= 0)_fire.localScale -= new Vector3(_decreaseValue, _decreaseValue, _decreaseValue);
-        }
-        if (_fire.localScale.x <= 0.0f)
-        {
-            SceneManager.LoadScene("GameOver");
+            if (_fire.localScale.x >= 0) _fire.localScale -= new Vector3(_decreaseValue, _decreaseValue, _decreaseValue);
+            _light.intensity = _fire.localScale.x * 2;
+            _light.range = _light.intensity * 10;
+            if (_fire.localScale.x <= 0.0f)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 
