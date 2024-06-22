@@ -8,8 +8,7 @@ public class player_move : MonoBehaviour
     [SerializeField] private float speed_run = 7.0f;
     private float speed;
     private Vector3 old_pos;
-
-    
+    private bool istouch = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,7 @@ public class player_move : MonoBehaviour
         speed = speed_walk;
 
         //‘–‚é‘¬“x
-        if (Input.GetKey(KeyCode.LeftShift)) 
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = speed_run;
         }
@@ -42,9 +41,19 @@ public class player_move : MonoBehaviour
 
         old_pos = transform.position;
 
-        if (delta == Vector3.zero)
+        if (delta == Vector3.zero || istouch)
             return;
 
         transform.rotation = Quaternion.LookRotation(delta, Vector3.up);
+    }
+
+    private void OnCollisionEnter(Collision coll)
+    {
+        istouch = true;
+    }
+
+    private void OnCollisionExit(Collision coll)
+    {
+        istouch = false;
     }
 }
