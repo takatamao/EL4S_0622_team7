@@ -8,6 +8,7 @@ public class Bonfire : GimmickBase
     [SerializeField] private float _decreaseValue;
     [SerializeField] private Transform _fire;
     [SerializeField] private float _burstTime;
+    [SerializeField] private float _maxSize = 5.0f;
     private float _nowTime;
     private Vector3 _startScale = Vector3.zero;
     private Vector3 _endScale = Vector3.zero;
@@ -23,7 +24,15 @@ public class Bonfire : GimmickBase
 
         if (_nowTime<=_burstTime)
         {
-            _fire.localScale = Vector3.Lerp(_startScale, _endScale,_nowTime/_burstTime);
+            Vector3 size = Vector3.Lerp(_startScale, _endScale,_nowTime/_burstTime);
+            if (size.x >= _maxSize)
+            {
+                size = new Vector3(_maxSize, _maxSize, _maxSize);
+            }
+            else
+            {
+                _fire.localScale = size;
+            }
             _nowTime += Time.deltaTime;
         }
         else
