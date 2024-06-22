@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tree : GimmickBase
 {
     [SerializeField] private GameObject _Branch;
+    [SerializeField] private float _instantiateRange;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Tree : GimmickBase
         if(other.CompareTag("Axe"))
         {
             Instantiate(_Branch,transform.position,Quaternion.identity);
+            Instantiate(this.gameObject, new Vector3(Random.Range(-_instantiateRange, _instantiateRange), 1.5f, Random.Range(-_instantiateRange, _instantiateRange)), Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
