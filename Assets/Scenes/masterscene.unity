@@ -820,11 +820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7261058302050979080, guid: a9162d09a075251468458dc368b6d97a, type: 3}
       propertyPath: speed_run
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7261058302050979080, guid: a9162d09a075251468458dc368b6d97a, type: 3}
       propertyPath: speed_walk
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
