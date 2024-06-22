@@ -15,17 +15,22 @@ public class player_anim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        axe.isTrigger = anim.GetCurrentAnimatorStateInfo(0).IsName("swing");
+        //•€‚Ì“–‚½‚è”»’è‚ÍU‚Á‚Ä‚¢‚é‚Æ‚«‚Ì‚İ
+        axe.isTrigger = !anim.GetCurrentAnimatorStateInfo(0).IsName("swing");
 
+        //•€‚ğU‚é
         if (Input.GetMouseButton(0))
         {
             anim.SetInteger("status_anim", 3);
             return;
         }
 
-        if (Input.GetKey(KeyCode.W))
+        //ˆÚ“®
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             anim.SetInteger("status_anim", 1);
+
+            //‘–‚é
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 anim.SetInteger("status_anim", 2);
@@ -33,6 +38,7 @@ public class player_anim : MonoBehaviour
             return;
         }
 
+        //‘Ò‹@ƒ‚[ƒVƒ‡ƒ“
         anim.SetInteger("status_anim", 0);
     }
 }
