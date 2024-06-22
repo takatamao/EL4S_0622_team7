@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tree : GimmickBase
@@ -31,6 +29,7 @@ public class Tree : GimmickBase
 
         if (other.CompareTag("Axe"))
         {
+            SoundManager.instance.PlaySE(1,0.25f);
             Instantiate(_Branch,transform.position,Quaternion.identity);
             Instantiate(this.gameObject, new Vector3(x, 0.0f, z), Quaternion.identity);
             Destroy(this.gameObject);

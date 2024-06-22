@@ -38,6 +38,10 @@ public class SoundManager : MonoBehaviour
 
         }
     }
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -45,19 +49,22 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlayBGM(int BGMnum, bool loop)
+    public void PlayBGM(int BGMnum, float volume, bool loop)
     {
         BGM_Sources[0].loop = loop;
         BGM_Sources[0].clip = BGM[BGMnum];
+        BGM_Sources[0].volume = volume;
+        BGM_Sources[0].Play();
     }
 
-    public void PlaySE(int SEnum)
+    public void PlaySE(int SEnum, float volume = 1.0f)
     {
         foreach (AudioSource source in SE_Sources)
         {
             if (source.isPlaying)
                 continue;
             source.clip = SE[SEnum];
+            source.volume = volume;
             source.Play();
             break;
         }

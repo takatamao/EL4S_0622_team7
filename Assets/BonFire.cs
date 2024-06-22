@@ -18,6 +18,7 @@ public class Bonfire : GimmickBase
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.instance.PlayBGM(0,0.25f, true);
         _nowTime = _burstTime + 1.0f;
     }
 
@@ -57,6 +58,7 @@ public class Bonfire : GimmickBase
     {
         if(Player.player.branchPoint != 0)
         {
+            SoundManager.instance.PlaySE(0,0.5f);
             _startScale = _fire.localScale;
             float point = Player.player.branchPoint / _pointRef;
             _endScale = _fire.localScale + new Vector3(point, point, point);
