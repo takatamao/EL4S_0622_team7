@@ -22,6 +22,9 @@ public class player_anim : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             anim.SetInteger("status_anim", 3);
+
+            //‰¹
+            //SoundManager.instance.PlaySE(0);
             return;
         }
 
