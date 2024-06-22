@@ -1,5 +1,3 @@
-using OpenCover.Framework.Model;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +21,7 @@ public class Bonfire : GimmickBase
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (_nowTime <= _burstTime)
