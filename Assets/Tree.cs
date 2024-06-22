@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tree : GimmickBase
 {
     [SerializeField] private GameObject _Branch;
-    [SerializeField] private float _instantiateRange;
+    [SerializeField] private float _instantiateRange = 9;
 
     // Start is called before the first frame update
     void Start()
