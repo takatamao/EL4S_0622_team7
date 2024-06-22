@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Branch: {fileID: 8514940609294620811, guid: 62cf2ddc04ed263408dd56a4934a18bd, type: 3}
+  _instantiateRange: 9
 --- !u!54 &4345119297827489493
 Rigidbody:
   m_ObjectHideFlags: 0
