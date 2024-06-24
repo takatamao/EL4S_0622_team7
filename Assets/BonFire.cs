@@ -5,6 +5,8 @@ public class Bonfire : GimmickBase
 {
 
     [SerializeField] private float _decreaseValue;
+    [SerializeField] private float _maxDecreaseValue;
+    [SerializeField] private float _increaseValue;
     [SerializeField] private Transform _fire;
     [SerializeField] private Light _light;
     [SerializeField] private float _burstTime;
@@ -17,6 +19,7 @@ public class Bonfire : GimmickBase
     void Start()
     {
         SoundManager.instance.PlayBGM(0,0.25f, true);
+        InvokeRepeating("BonfireInclease", 0, 10.0f);
         _nowTime = _burstTime + 1.0f;
     }
 
@@ -64,5 +67,9 @@ public class Bonfire : GimmickBase
             Player.player.branchPoint = 0;
         }
     }
-
+    
+    void BonfireInclease()
+    {
+      if(_decreaseValue < _maxDecreaseValue) _decreaseValue += _increaseValue;
+    }
 }

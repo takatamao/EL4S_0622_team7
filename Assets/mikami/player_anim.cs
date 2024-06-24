@@ -19,7 +19,7 @@ public class player_anim : MonoBehaviour
         axe.enabled = anim.GetCurrentAnimatorStateInfo(0).IsName("swing");
 
         //•€‚ğU‚é
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Button_A"))
         {
             anim.SetInteger("status_anim", 3);
 

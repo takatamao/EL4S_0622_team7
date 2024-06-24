@@ -20,6 +20,7 @@ public class Branch : GimmickBase
     {
         if(Player.player.branchPoint < Player.player.maxBranchPoint)
         {
+            SoundManager.instance.PlaySE(2, 0.25f);
             Player.player.branchPoint++;
             Destroy(this.gameObject);
         }

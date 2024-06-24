@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4822078223803386325}
   - component: {fileID: 9130416457676661183}
   - component: {fileID: 3893618657497059712}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Branch: {fileID: 3441293456024310627, guid: 2d2ec792e67233c4aabb5928f71587a0, type: 3}
-  _instantiateRange: 9
+  _dropBranchPower: 150
+  _spawnDeadZone: 0
 --- !u!54 &4822078223803386325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

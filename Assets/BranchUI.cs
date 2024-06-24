@@ -16,5 +16,7 @@ public class BranchUI : MonoBehaviour
     void Update()
     {
         _text.text = Player.player.branchPoint.ToString() + "/5";
+        if (Player.player.branchPoint == 5) _text.color = Color.red;
+        else _text.color = Color.white;
     }
 }

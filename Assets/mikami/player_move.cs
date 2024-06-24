@@ -5,7 +5,7 @@ using UnityEngine;
 public class player_move : MonoBehaviour
 {
     [SerializeField] private float speed_walk = 4.0f;
-    [SerializeField] private float speed_run = 7.0f;
+   // [SerializeField] private float speed_run = 7.0f;
     private float speed;
     private Vector3 old_pos;
     private bool istouch = false;
@@ -14,6 +14,7 @@ public class player_move : MonoBehaviour
     void Start()
     {
         old_pos = transform.position;
+        speed = speed_walk;
     }
 
     // Update is called once per frame
@@ -25,17 +26,15 @@ public class player_move : MonoBehaviour
             return;
         }
 
-        //移動速度更新
-        speed = speed_walk;
-
-        //走る速度
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = speed_run;
-        }
+        
+        ////走る速度
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    speed = speed_run;
+        //}
 
         //前後移動
-        transform.position += new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")) * speed * Time.deltaTime;
+        transform.position += new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")).normalized * speed * Time.deltaTime;
 
         Vector3 delta = transform.position - old_pos;
 
